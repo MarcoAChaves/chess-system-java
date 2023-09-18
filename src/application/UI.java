@@ -32,7 +32,7 @@ public class UI {
 
     //Código para limpar a tela ao invés de rolar (LIMPANDO O CONSOLE).
 
-    public static void clearScreen(){
+    public static void clearScreen() {
         System.out.print("\033[H\033[2J");
         System.out.flush();
     }
