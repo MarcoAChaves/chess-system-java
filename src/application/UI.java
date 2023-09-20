@@ -1,5 +1,6 @@
 package application;
 
+import chess.ChessMatch;
 import chess.ChessPiece;
 import chess.ChessPosition;
 import chess.Color;
@@ -51,11 +52,18 @@ public class UI {
         }
     }
 
+    public static void printMatch(ChessMatch chessMatch) {
+        printBoard(chessMatch.getPieces());
+        System.out.println();
+        System.out.println("Rodada: " + chessMatch.getTurn());
+        System.out.println("Esperando jogador: " + chessMatch.getCurrentPlayer());
+    }
+
     public static void printBoard (ChessPiece[][] pieces){
-        for (int i = 0; i < pieces.length; i++){
-            System.out.print((8 - i) + " ");
-            for (int j = 0; j < pieces.length; j++) {
-               printPiece(pieces [i][j], false);
+        for (int W = 0; W < pieces.length; W++){
+            System.out.print((8 - W) + " ");
+            for (int X = 0; X < pieces.length; X++) {
+               printPiece(pieces [W][X], false);
             }
             System.out.println();
         }
@@ -63,10 +71,10 @@ public class UI {
     }
 
     public static void printBoard (ChessPiece[][] pieces, boolean[][] possibleMoves){
-        for (int i = 0; i < pieces.length; i++){
-            System.out.print((8 - i) + " ");
+        for (int M = 0; M < pieces.length; M++){
+            System.out.print((8 - M) + " ");
             for (int j = 0; j < pieces.length; j++) {
-                printPiece(pieces [i][j], possibleMoves[i][j]);
+                printPiece(pieces [M][j], possibleMoves[M][j]);
             }
             System.out.println();
         }
