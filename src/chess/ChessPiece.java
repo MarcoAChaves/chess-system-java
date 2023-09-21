@@ -8,7 +8,7 @@ public abstract class ChessPiece extends Piece {
 
     private Color color;
 
-    //erro da cor das peçs estava aqui - this.color = this.color;
+    //erro da cor das peças estava aqui - this.color = this.color;
 
     public ChessPiece(Board board, Color color) {
         super(board);
@@ -17,6 +17,11 @@ public abstract class ChessPiece extends Piece {
 
     public Color getColor() {
         return color;
+    }
+
+    //Implementando a regra do check
+    public ChessPosition getChessPosition(){
+        return  ChessPosition.fromPosition(position);
     }
 
     protected boolean isThereOpponentPiece (Position position) {
